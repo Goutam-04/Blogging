@@ -1,10 +1,10 @@
 import React from 'react'
-import styles from "./navbar.module.css"
+import styles from "./categoryList.module.css"
 
-const Navbar = () => {
+const categoryList = () => {
   return (
-    <div className={styles.container}>Navbar</div>
+    <div className={styles.container}>categoryList</div>
   )
 }
 
-export default Navbar
+export default categoryList
