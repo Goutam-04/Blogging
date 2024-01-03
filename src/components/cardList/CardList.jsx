@@ -1,10 +1,26 @@
-import React from 'react'
-import styles from "./cardList.module.css"
+import React from "react";
+import styles from "./cardList.module.css";
+import Pagination from "../pagination/Pagination";
+import Image from "next/image";
+import Card from "../card/Card";
 
-const CardList = () => {
+
+const CardList = async ({ page, cat }) => {
+
+
   return (
-    <div className={styles.container}>CardList</div>
-  )
-}
+    <div className={styles.container}>
+      <h1 className={styles.title}>Recent Posts</h1>
+      <div className={styles.posts}>
+        
+          <Card/>
+          <Card/>
+          <Card/>
+      
+      </div>
+    
+    </div>
+  );
+};
 
-export default CardList
+export default CardList;
