@@ -1,0 +1,10 @@
+.content{
+    display: flex;
+    gap: 50px;
+  }
+
+  .container {
+  min-height: 100vh;
+  background-color: var(--bg);
+  color: var(--textColor);
+}
