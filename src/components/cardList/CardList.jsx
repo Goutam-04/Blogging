@@ -18,7 +18,7 @@ const CardList = async ({ page, cat }) => {
           <Card/>
       
       </div>
-    
+    <Pagination/>
     </div>
   );
 };
