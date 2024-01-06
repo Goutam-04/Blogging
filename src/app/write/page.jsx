@@ -74,7 +74,7 @@ const WritePage = () => {
           theme="bubble"
           value={value}
           onChange={setValue}
-          placeholder="Tell your story..."
+          placeholder="Tell your story................"
         />
       </div>
       <button className={styles.publish} onClick={handleSubmit}>
