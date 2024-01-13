@@ -5,6 +5,15 @@ import Image from "next/image";
 
 
 const CategoryList = async () => {
+
+
+  //TESTING ONLY
+
+  // const getData = async () => {
+  //   const res = await fetch("http://localhost:3000/api/categories");
+  //   return res.json();
+  // };
+  // console.log(getData);
   
   return (
     <div className={styles.container}>
