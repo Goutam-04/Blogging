@@ -3,113 +3,50 @@ import styles from "./categoryList.module.css";
 import Link from "next/link";
 import Image from "next/image";
 
+const getData=async ()=>{
+  const data=await fetch("http://localhost:3000/api/categories",{cache:"no-store"});
+
+  if(!data.ok){
+    throw new Error("Failed");
+  }
+
+  return data.json()
+}
+
 
 const CategoryList = async () => {
 
+const data=await getData();
 
-  //TESTING ONLY
 
-  // const getData = async () => {
-  //   const res = await fetch("http://localhost:3000/api/categories");
-  //   return res.json();
-  // };
-  // console.log(getData);
   
   return (
     <div className={styles.container}>
       <h1 className={styles.title}>Popular Categories</h1>
       <div className={styles.categories}>
-       
+
+          
+
+          {data.map((items)=>(
+
           <Link
             href="/blog?cat=style"
-            className={`${styles.category} ${styles.style}`}
+            className={`${styles.category} ${styles[items.slug]}`}
+            key={items._id}
           >
             
               <Image
-                src="/style.png"
-                alt=""
+                src={items.img}
+                alt={items.slug}
                 width={32}
                 height={32}
                 className={styles.image}
               />
-            style
+            {items.slug}
            
-          </Link>
-          <Link
-            href="/blog?cat=style"
-            className={`${styles.category} ${styles.food}`}
-          >
-            
-              <Image
-                src="/food.png"
-                alt=""
-                width={32}
-                height={32}
-                className={styles.image}
-              />
-            food
-           
-          </Link>
-          <Link
-            href="/blog?cat=style"
-            className={`${styles.category} ${styles.style}`}
-          >
-            
-              <Image
-                src="/style.png"
-                alt=""
-                width={32}
-                height={32}
-                className={styles.image}
-              />
-            style
-           
-          </Link>
-          <Link
-            href="/blog?cat=style"
-            className={`${styles.category} ${styles.style}`}
-          >
-            
-              <Image
-                src="/style.png"
-                alt=""
-                width={32}
-                height={32}
-                className={styles.image}
-              />
-            style
-           
-          </Link>
-          <Link
-            href="/blog?cat=style"
-            className={`${styles.category} ${styles.style}`}
-          >
-            
-              <Image
-                src="/style.png"
-                alt=""
-                width={32}
-                height={32}
-                className={styles.image}
-              />
-            style
-           
-          </Link>
-          <Link
-            href="/blog?cat=style"
-            className={`${styles.category} ${styles.style}`}
-          >
-            
-              <Image
-                src="/style.png"
-                alt=""
-                width={32}
-                height={32}
-                className={styles.image}
-              />
-            style
-           
-          </Link>
+          </Link>))
+          
+          }
   
         
       </div>
