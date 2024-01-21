@@ -3,6 +3,16 @@ import styles from "./singlePage.module.css";
 import Image from "next/image";
 import Comments from "@/components/comments/Comments";
 
+// const getData = async ()=>{
+//   const data = await fetch("http://localhost:3000/api/posts",{cache:"no-store"})
+//   if (!data.ok) {
+//     throw new Error("Failed");
+//   }
+
+//   return data.json();
+// }
+
+
 const SinglePage = async () => {
   return (
     <div className={styles.container}>
