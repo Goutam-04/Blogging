@@ -2,9 +2,9 @@ import Image from "next/image";
 import styles from "./card.module.css";
 import Link from "next/link";
 
-const Card = () => {
+const Card = ({key,item}) => {
   return (
-    <div className={styles.container}>
+    <div className={styles.container} key={key}>
      
         <div className={styles.imageContainer}>
           <Image src="/p1.jpeg" alt="" fill className={styles.image} />
@@ -18,7 +18,7 @@ const Card = () => {
           <span className={styles.category}>Culture</span>
         </div>
         <Link href="/">
-          <h1>Lorem ipsum aosdhg apoirewh  aiejgt aopegh </h1>
+          <h1>{item.title}</h1>
         </Link>
         <p className={styles.desc}>Have you met the ultimate movers and packers of the tech world? If not, say hello to Docker & Kubernetes. Docker efficiently packs your daily apps into super-portable containers, just like those magic boxes movers use to keep everything snug. On the other hand, Kubernetes relocates these containers, ensuring your apps land precisely where required.</p>
        
