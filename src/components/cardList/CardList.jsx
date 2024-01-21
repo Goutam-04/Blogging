@@ -1,27 +1,26 @@
 import React from "react";
 import styles from "./cardList.module.css";
 import Pagination from "../pagination/Pagination";
-import Image from "next/image";
 import Card from "../card/Card";
 
 const getData = async () => {
-  const res = await fetch(
+  const data = await fetch(
     `http://localhost:3000/api/posts`,
     {
       cache: "no-store",
     }
   );
 
-  if (!res.ok) {
+  if (!data.ok) {
     throw new Error("Failed");
   }
 
-  return res.json();
+  return data.json();
 };
 
 const CardList = async () => {
 
-const posts = await getData();
+  const posts = await getData();
   return (
     <div className={styles.container}>
       <h1 className={styles.title}>Recent Posts</h1>
@@ -30,8 +29,7 @@ const posts = await getData();
           <Card item={item} key={item._id} />
         ))}
       </div>
-      <Pagination/>
-      {/* <Pagination page={page} hasPrev={hasPrev} hasNext={hasNext} /> */}
+        <Pagination/>
     </div>
   );
 };

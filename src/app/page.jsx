@@ -3,11 +3,9 @@ import Featured from "@/components/featured/Featured";
 import CategoryList from "@/components/categoryList/CategoryList";
 import CardList from "@/components/cardList/CardList";
 import Menu from "@/components/Menu/Menu";
-import { useSearchParams } from "next/navigation";
 
 export default function Home() {
-  const page = parseInt(useSearchParams.page||1);
-  console.log(page);
+  
 
   return (
     <div className={styles.container}>
