@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 
 const getData=async ()=>{
-  const data=await fetch("http://localhost:3000/api/categories",{cache:"no-store"});
+  const data=await fetch(`${process.env.NEXTAUTH_URL}/api/categories`,{cache:"no-store"});
 
   if(!data.ok){
     throw new Error("Failed");
