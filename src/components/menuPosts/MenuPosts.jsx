@@ -43,8 +43,6 @@ const MenuPosts = ({ withImage }) => {
         </div>
       </Link>
       <Link href="/" className={styles.item}>
-
-      {/* with image not understand */}
         {withImage && (
           <div className={styles.imageContainer}>
             <Image src="/p1.jpeg" alt="" fill className={styles.image} />

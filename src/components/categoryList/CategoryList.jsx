@@ -3,52 +3,42 @@ import styles from "./categoryList.module.css";
 import Link from "next/link";
 import Image from "next/image";
 
-const getData=async ()=>{
-  const data=await fetch(`${process.env.NEXTAUTH_URL}/api/categories`,{cache:"no-store"});
+const getData = async () => {
+  const res = await fetch(`${process.env.NEXTAUTH_URL}/api/categories`, {
+    cache: "no-store",
+  });
 
-  if(!data.ok){
+  if (!res.ok) {
     throw new Error("Failed");
   }
 
-  return data.json()
-}
-
+  return res.json();
+};
 
 const CategoryList = async () => {
-
-const data=await getData();
-
-
-  
+  const data = await getData();
   return (
     <div className={styles.container}>
       <h1 className={styles.title}>Popular Categories</h1>
       <div className={styles.categories}>
-
-          
-
-          {data.map((items)=>(
-
+        {data?.map((item) => (
           <Link
             href="/blog?cat=style"
-            className={`${styles.category} ${styles[items.slug]}`}
-            key={items._id}
+            className={`${styles.category} ${styles[item.slug]}`}
+            key={item._id}
           >
-            
+            {item.img && (
               <Image
-                src={items.img}
-                alt={items.slug}
+                src={item.img}
+                alt=""
                 width={32}
                 height={32}
                 className={styles.image}
               />
-            {items.slug}
-           
-          </Link>))
-          
-          }
-  
-        
+            )}
+            {item.title}
+          </Link>
+        ))}
       </div>
     </div>
   );

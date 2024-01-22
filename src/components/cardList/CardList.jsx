@@ -5,23 +5,18 @@ import Image from "next/image";
 import Card from "../card/Card";
 
 const getData = async (page, cat) => {
-  try {
-    const res = await fetch(
-      `${process.env.NEXTAUTH_URL}/api/posts?page=${page}&cat=${cat || ""}`,
-      {
-        cache: "no-store",
-      }
-    );
-
-    if (!res.ok) {
-      throw new Error(`Request failed with status ${res.status}`);
+  const res = await fetch(
+    `${process.env.NEXTAUTH_URL}/api/posts?page=${page}&cat=${cat || ""}`,
+    {
+      cache: "no-store",
     }
+  );
 
-    return res.json();
-  } catch (error) {
-    console.error("Error in getData:", error);
-    throw error; // Re-throw the error to propagate it further
+  if (!res.ok) {
+    throw new Error("Failed");
   }
+
+  return res.json();
 };
 
 const CardList = async ({ page, cat }) => {
